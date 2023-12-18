@@ -1,0 +1,6 @@
+Melhores Parametros
+
+SVR - ['rbf', 'scale', True, True]
+RNR - [20, 36, 'softsign', 'selu', 'rmsprop']
+ARIMA - [False, True, True, True, 'approx', 'bfgs', 1, 2, 12, 1]
+ETS - ['mul', 'mul', 'add', 'heuristic', 19]
