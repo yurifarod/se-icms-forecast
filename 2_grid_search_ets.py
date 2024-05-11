@@ -50,7 +50,9 @@ def previsao_ets(desp_serie, intervalo, parametros):
     size = len(previsto)    
     erro = []
     
-    for i in range(214, 214 + size):
+    size_ref = len(desp_serie)
+    
+    for i in range(size_ref, size_ref + size):
         parc_erro = (previsto[i] - serie_real[i])/serie_real[i]
         erro.append(abs(parc_erro))
 
@@ -70,6 +72,9 @@ serie_original = serie_original.reindex()
 
 #Esta serie tem a ultima observacao incompleta, precisaremos tratar isso!
 serie_original.drop(serie_original.tail(1).index,inplace=True) # drop last n rows
+
+#Agora colocamos a serie no ponto inicial dos testes (14 observacoes) para o grid-search
+serie_original.drop(serie_original.tail(14).index,inplace=True)
 
 serie_size = len(serie_original)
 intervalo = 12

@@ -80,6 +80,9 @@ serie_original = serie_original.reindex()
 #Esta serie tem as duas ultimas observacoes incompletas, precisaremos tratar isso!
 serie_original.drop(serie_original.tail(1).index,inplace=True) # drop last n rows
 
+#Agora colocamos a serie no ponto inicial dos testes (14 observacoes) para o grid-search
+serie_original.drop(serie_original.tail(14).index,inplace=True)
+
 serie_original = serie_original.values
 serie_original = pd.DataFrame(serie_original)
 

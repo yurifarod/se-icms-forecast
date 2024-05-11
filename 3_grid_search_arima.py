@@ -72,8 +72,9 @@ def previsao_arima(desp_serie, intervalo, parametros):
 
     size = len(previsto)
     erro = []
-
-    for i in range(214, 214 + size):
+    size_ref = len(desp_serie)
+    
+    for i in range(size_ref, size_ref + size):
         parc_erro = (previsto[i] - serie_real[i])/serie_real[i]
         erro.append(abs(parc_erro))
 
@@ -93,6 +94,9 @@ serie_original = serie_original.reindex()
 #Esta serie tem a ultima observacao incompleta, precisaremos tratar isso!
 serie_original.drop(serie_original.tail(1).index,inplace=True) # drop last n rows
 
+#Agora colocamos a serie no ponto inicial dos testes (14 observacoes) para o grid-search
+serie_original.drop(serie_original.tail(14).index,inplace=True)
+
 serie_size = len(serie_original)
 intervalo = 12
 
@@ -106,10 +110,10 @@ v_enforce_stationarity = [True, False]
 v_concentrate_scale = [True, False]
 v_cov_type = ['approx']
 v_method = ['bfgs', 'cg']
-v_p = [1]
-v_d = [2]
-v_q = [12]
-v_trend = [1]
+v_p = range(1, 5)
+v_d = range(1, 5)
+v_q = range(1, 5)
+v_trend = range(1, 5)
 
 best_vlerro = 99
 best_para = []

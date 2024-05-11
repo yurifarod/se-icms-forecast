@@ -84,9 +84,9 @@ Aqui iniciamos a previsao utilizando o modelo ETS
 '''
 erro = 'mul'
 trend = 'mul'
-seasonal = 'add'
+seasonal = 'mul'
 init = 'heuristic'
-period = 19
+period = 15
 
 best_vlerro = 99
 best_para = []

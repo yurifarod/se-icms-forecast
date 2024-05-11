@@ -91,8 +91,8 @@ intervalo = 12
 '''
 Aqui iniciamos a previsao utilizando o modelo SVR
 '''
-kernel = 'rbf'
-gamma = 'scale'
+kernel = 'poly'
+gamma = 'auto'
 shrinke = True
 verbose = True
 

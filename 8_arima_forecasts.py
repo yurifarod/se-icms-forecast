@@ -103,15 +103,15 @@ intervalo = 12
 '''
 Aqui iniciamos a previsao utilizando o modelo ARIMA (sarima zerado na sazonalidade)
 '''
-measurement_error = False
+measurement_error = True
 time_varying = True
 enforce = True
-concentrate = True
+concentrate = False
 conv_type = 'approx'
-method = 'bfgs'
-p = 1
-d = 2
-q = 12
+method = 'cg'
+p = 3
+d = 1
+q = 2
 trend = 1
 
 best_vlerro = 99

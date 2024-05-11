@@ -118,8 +118,8 @@ def previsao_lstm(desp_serie, intervalo, parametros):
 '''
 Aqui iniciamos a previsao utilizando o modelo LSTM
 '''
-epochs = 20
-units = 36
+epochs = 25
+units = 12
 activation = 'softsign'
 final_activation = 'selu'
 optimizer = 'rmsprop'

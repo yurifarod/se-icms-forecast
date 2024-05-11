@@ -30,6 +30,9 @@ serie_original = serie_original.reindex()
 #Esta serie tem as duas ultimas observacoes incompletas, precisaremos tratar isso!
 serie_original.drop(serie_original.tail(1).index,inplace=True) # drop last n rows
 
+#Esta serie tem a ultima observacao incompleta, precisaremos tratar isso!
+serie_original.drop(serie_original.tail(1).index,inplace=True) # drop last n rows
+
 serie_original = serie_original.values
 serie_original = pd.DataFrame(serie_original)
 
@@ -119,8 +122,8 @@ def previsao_lstm(desp_serie, intervalo, parametros):
 '''
 Aqui iniciamos a previsao utilizando o modelo LSTM
 '''
-v_epochs = [5, 10, 15, 20]
-v_units = [12, 24, 36]
+v_epochs = [5, 10, 15, 20, 25, 35]
+v_units = [12, 24, 36, 48]
 v_activation = ['selu', 'softsign']
 v_final_activation = ['selu', 'softmax']
 v_optimizer = ['adam', 'rmsprop']
